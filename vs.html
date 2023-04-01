@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: SD-prototype;
+      src: url(sd_prototype.ttf);
+    }
+
+    * {
+      font-family: SD-prototype;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      height: 100vh;
+    }
+    
+    .bg-video {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -10;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      overflow: hidden;
+    }
+    
+    .vs-frame {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: fixed;
+    }
+
+    .vs {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 294px;
+      width: 1525px;
+      height: 475px;
+      margin-left: 204px; 
+      gap: 20px;
+    }
+    
+    .team-nova, .team-ravi {
+      width: 453px;
+      height: 475px;
+      object-fit: cover;
+    }
+
+    .countdown {
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-weight: 700;
+      font-size: 70px;
+      padding-top: 735px;
+    }
+
+    .logo{
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      margin-left: 854px; 
+      margin-top: -35px;
+    }
+
+  </style>
+  <body>
+    <video autoplay loop class="bg-video">
+      <source src="bg-live.webm" type="video/webm">
+    </video>
+    <img src="./VS.png" class="vs-frame"/>
+
+    <div class="vs">  
+      <!-- ******** เปลี่ยนรูปทีมที่จะเอามาแข่งกัน ******** -->
+      <!-- TEAM NOVA -->
+      <img src="./team/CP9.png" class="team-nova"/>
+      
+      <!-- TEAM RAVI -->
+      <img src="./team/OLD.jpg" class="team-ravi"/>
+      <!-- **************************************** -->
+    </div>
+
+    <div class="countdown">START <span id="demo"></span></div>
+    <div><img src="Overwatch_logo.png" class="logo"/></div>
+
+  </body>
+  <script>
+    
+    // ******** เปลี่ยนเวลานับถอยหลัง ********
+    var countDownDate = new Date('Feb 11, 2023 20:00:00').getTime();
+    // ***********************************
+
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById('demo').innerHTML =
+        "IN " + minutes + 'm ' + seconds + 's ';
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById('demo').innerHTML = 'SOON...';
+      }
+    }, 1000);
+  </script>
+</html>

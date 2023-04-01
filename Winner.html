@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: SD-prototype;
+      src: url(sd_prototype.ttf);
+    }
+
+    * {
+      font-family: SD-prototype;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      height: 100vh;
+    }
+    
+    .bg-video {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -10;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      overflow: hidden;
+    }
+    
+    .vs-frame {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: fixed;
+    }
+
+    .vs {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 294px;
+      width: 1525px;
+      height: 475px;
+      margin-left: 204px; 
+      gap: 20px;
+    }
+    
+    .team-nova, .team-ravi {
+      width: 453px;
+      height: 475px;
+      object-fit: cover;
+    }
+
+    .countdown {
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-weight: 700;
+      font-size: 70px;
+      padding-top: 735px;
+    }
+
+    .logo{
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      margin-left: 854px; 
+      margin-top: 75px;
+    }
+
+  </style>
+  <body>
+    <video autoplay loop class="bg-video">
+      <source src="bg-live.webm" type="video/webm">
+    </video>
+    
+
+    <div class="vs">  
+      <!-- ******** เปลี่ยนรูปทีมที่จะเอามาแข่งกัน ******** -->
+      <!-- TEAM NOVA -->
+      <img src="./team/CP9.png" class="team-nova"/>
+      
+      <!-- TEAM RAVI -->
+      <img src="./team/OLD.jpg" class="team-ravi"/>
+      <!-- **************************************** -->
+    </div>
+
+    <div class="countdown"><span id="demo"></span></div>
+    <div><img src="Overwatch_logo.png" class="logo"/></div>
+
+  </body>
+</html>
